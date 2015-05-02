@@ -1,0 +1,24 @@
+{
+  "name": "qsmiddleman",
+  "version": "0.0.1",
+  "description": "Pushing your Quantified Self data from one place to another.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greglgomez/qsMiddleman.git"
+  },
+  "keywords": [
+    "Quantified",
+    "Self",
+    "Data"
+  ],
+  "author": "@greglgomez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greglgomez/qsMiddleman/issues"
+  },
+  "homepage": "https://github.com/greglgomez/qsMiddleman#readme"
+}
