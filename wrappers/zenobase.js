@@ -41,11 +41,11 @@ module.exports = {
 		request({
 			url: api +
 			"/buckets/" + bucket + "/?" +
-			"offset=" + offset + "&" +
-			"limit=" + limit + "&" +
-			"order=" + order + "&" +
-			"facet" + facet + "&" +
-			"q=" + constraint,
+			"offset=" + offset +
+			"&limit=" + limit +
+			"&order=" + order +
+			"&facet=" + facet +
+			"&q=" + constraint,
 			headers: key
 		}, callback)
 
