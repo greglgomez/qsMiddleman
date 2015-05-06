@@ -22,9 +22,7 @@
   },
   "homepage": "https://github.com/greglgomez/qsMiddleman#readme",
   "dependencies": {
-    "jsonpath": "^0.1.3",
-    "piranaa": "^0.1.0",
-    "request": "^2.55.0",
-    "restler": "^3.2.2"
+    "bureaucat": "^0.1.2",
+    "request": "^2.55.0"
   }
 }
