@@ -4,7 +4,7 @@
 
 Simple Node.js app I created to move my Quantified Self data from all their own little silos into one place.
 
-At the moment this is very much focused on Webhook as an endpoint for data, but I'm building it in such a way that it will be easy to add new sources and destinations for your data.
+At the moment this is very much focused on Webhook as an endpoint for data, but I'll be refactoring the modules in such a way that it will be easy to add new destinations for your data.
 
     This is in heavy development at the moment and is not really ready for anyone to use.
 
@@ -19,64 +19,20 @@ npm install qsMiddleman --save
 Go into `config.js`, add all your api keys, relevant user/site names, etc.
 
 ## Usage
-I've created basic Javascript API wrappers for:
-- Exist.io
-- Zenobase
-- Webhook
-
-You can simply require a wrapper for quick access to your data.
-```
-var exist = require('exist')
-exist.today;
-```
-This will return the users tracked daily counts such as tweets, songs listened to, steps, etc.
-
-```
-var webhook = require('webhook');
-webhook.build;
-```
-Will rebuild your remote Webhook site.
-
-
-## Workflow
-This the expected workflow for my specific use-case requirements, the scope will be inclusive once I've handed my final project in. :)
-- request data from [exist.io](https://exist.io)/[zenobase](https://zenobase.com/#/), I'm using these services as they already normalise and aggregate my Quantified Self data.
-- Pipe the resulting JSON through a transform stream changing keys to what my destination will expect.
-- Pipe the data to the Webhook API.
-
-## Wrappers
-API methods that I've tackled so far:
-
-### Exist.io
-#### [User](https://exist.io/page/api-docs/#users)
-Returns an overview of the user's personal details, and their grouped attributes containing current values.
-
-qsMiddleman: `exist.today;`
-
-
-### Webhook
-#### [Build Site](http://www.webhook.com/docs/api-endpoints/#build_site)
-This is the endpoint used to trigger a build for a site immediately, there is no data associated with this request, just query string parameters.
-
-qsMiddleman: `webhook.build`
-
-#### [Insert an Item](http://www.webhook.com/docs/api-endpoints/#insert_an_item)
-This endpoint can be used to insert data into the database.
-
-qsMiddleman: `webhook.insert`
-
+`app.js` is set to pull exist.io daily data once a day with other `cron` jobs setup for calls of higher frequency, just drop 'em in, `forever` it and you're good to go.
 
 ## TODO
-Currently working on:
-- Wrapping other methods I need from the current API's listed.
-- Adding more templates for the data transforms step.
-
+- working on mapping more data from exist.io such as insight and correlation data.
+- pulling tweets is almost there, just working on an a lightweight tweet ID store to track new tweets.
+- heroku instructions.
 
 ## License
-Haven't set it up yet, but will probably be MIT.
-
+[MIT](https://github.com/greglgomez/qsMiddleman/blob/master/LICENSE.md)
 
 ## Contributions
 I'm not some code genius, so I welcome any and all input, pull requests, etc.
 
-Of particular use are new connectors/API wrappers, whether as a source or destination.
+Of particular use are new sources/destinations and their relevant data mappings.
+
+## Acknowledgements
+Big thanks to Adam Jaggard for his help refactoring a lot of my messy, scatterbrain code. :)
